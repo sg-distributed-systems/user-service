@@ -24,7 +24,6 @@ USERS = {
 
 
 def get_user(user_id: str) -> dict:
-    logger.debug("user_lookup", user_id=user_id)
     user = USERS.get(user_id)
     if not user:
         raise NotFoundError("user_not_found", details={"user_id": user_id})
