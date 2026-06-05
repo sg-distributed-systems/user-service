@@ -66,3 +66,18 @@ def update_user_profile(
         "updated_fields": updated_fields,
         "updated_at": datetime.utcnow(),
     }
+
+
+def deactivate_user(user_id: str, reason: str) -> dict:
+    logger.info("user_deactivation_started", user_id=user_id, reason=reason)
+
+    user = USERS.get(user_id)
+    if not user:
+        raise NotFoundError("user_not_found", details={"user_id": user_id})
+
+    logger.info("user_deactivated", user_id=user_id)
+    return {
+        "user_id": user_id,
+        "status": "deactivated",
+        "deactivated_at": datetime.utcnow(),
+    }
