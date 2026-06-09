@@ -11,7 +11,7 @@ from core_logger import get_logger
 
 from .errors import NotFoundError, ValidationError
 
-logger = get_logger("user-service")
+logger = get_logger("user-service", tier="compliance")
 
 USERS = {
     "user-001": {"email": "alice@example.com", "display_name": "Alice", "preferences": {}},
