@@ -7,11 +7,11 @@ Validates user input and tracks profile modification history.
 from datetime import datetime
 from typing import Optional
 
-from core_logger import get_logger
+from core_logger import Tier, get_logger
 
 from .errors import NotFoundError, ValidationError
 
-logger = get_logger("user-service")
+logger = get_logger("user-service", tier=Tier.BUSINESS)
 
 USERS = {
     "user-001": {"email": "alice@example.com", "display_name": "Alice", "preferences": {}},
